@@ -50,10 +50,32 @@ switch ($_GET["op"]) {
         echo json_encode($datos);
         break;
         //TODO: Procedimeinto para eliminar un proveedor en la base de datos
-    case 'eliminar':
+   
+        case 'eliminar':
+            $idUnidad_Medida = $_POST["idUnidad_Medida"];
+            $datos = array();
+            $datos =$unidad_medida->eliminar($idUnidad_Medida);
+            echo json_encode($datos);
+            break;
+            default:
+            echo json_encode(["error" => "Invalid operation."]);
+            
+    /*    case 'eliminar':
         $idUnidad_Medida = $_POST["idUnidad_Medida"];
         $datos = array();
         $datos =$unidad_medida->eliminar($idUnidad_Medida);
         echo json_encode($datos);
         break;
+    default:
+    echo json_encode(["error" => "Invalid operation."]);
+    break;
+    */
 }
+/*
+case 'eliminar':
+        $idProveedores = $_POST["idProveedores"];
+        $datos = array();
+        $datos = $proveedores->eliminar($idProveedores);
+        echo json_encode($datos);
+        break;
+*/
